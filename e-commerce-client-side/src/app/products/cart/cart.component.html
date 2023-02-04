@@ -1,0 +1,85 @@
+<!-- empty cart section -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col mt-5 text-center">
+      <img
+        style="height: 300px"
+        src="https://gifimage.net/wp-content/uploads/2017/11/einkaufswagen-gif-11.gif"
+        alt="empty cart image"
+      />
+      <h3 class="text-danger">Your Cart is empty.</h3>
+      <button routerLink="" class="btn btn-primary mt-2">Shop more</button>
+    </div>
+  </div>
+</div>
+<!-- cart section -->
+<div class="container mb-5 mt-5">
+  <div class="row">
+    <div class="col-lg-8 border rounded p-3">
+      <!-- table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Product Image</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <th>
+              <img
+                class="ms-4"
+                width="50px"
+                src="https://icons.iconarchive.com/icons/google/noto-emoji-objects/512/63007-shopping-cart-icon.png"
+                alt="product image"
+              />
+            </th>
+            <th>
+              <input
+                type="num"
+                class="form-control"
+                value="1"
+                style="max-width: 3rem"
+              />
+            </th>
+            <th>3000</th>
+            <th>
+              <a class="text-danger btn"><i class="fa-solid fa-trash"></i></a>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div style="float: right">
+        <button class="btn btn-danger">Empty Cart</button>
+        <a routerLink="" class="btn btn-secondary ms-5">Shop More</a>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3 border rounded p-3">
+      <div>
+        <p>
+          Total:
+          <span class="text-danger"> 3000 </span>
+        </p>
+        <p>Discount: <span>0</span></p>
+        <h5 class="animate__animated animate__shakeX">
+          Grant Total: <span>3000</span>
+        </h5>
+      </div>
+
+      <hr />
+
+      <div class="mt-2">
+        <a href="" style="text-decoration: none; float: left"
+          ><i class="fa-solid fa-tag"></i> offers</a
+        >
+
+        <button style="float: right" class="btn btn-success">Check Out</button>
+      </div>
+    </div>
+  </div>
+</div>

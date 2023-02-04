@@ -1,0 +1,54 @@
+<!-- Navigation-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
+  <div class="container px-4 px-lg-5">
+    <div class="col-lg-6">
+      <a class="navbar-brand" routerLink="">
+        <img
+          width="50px"
+          src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png"
+          alt=""
+        />&nbsp; Online Cart
+      </a>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item">
+          <form class="d-flex">
+            <input
+              type="text"
+              placeholder="search for products"
+              class="form-control"
+            />
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ms-4" routerLink="products/wishlist"
+            >&nbsp; &nbsp;<i class="fa fa-heart text-danger"></i> Wish List</a
+          >
+        </li>
+      </ul>
+      <form class="d-flex">
+        <a
+          routerLink="products/cart"
+          class="btn btn-outline-dark"
+          type="submit"
+        >
+          <i class="bi-cart-fill me-1"></i>
+          Cart
+          <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+        </a>
+      </form>
+    </div>
+  </div>
+</nav>
