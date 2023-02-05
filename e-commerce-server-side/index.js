@@ -18,3 +18,10 @@ server.get("/all-products", (req, res) => {
     res.status(result.statusCode).json(result);
   });
 });
+
+// view product api
+server.get("/view-product/:productId", (req, res) => {
+  dataService.viewProduct(req.params.productId).then((result) => {
+    res.status(result.statusCode).json(result);
+  });
+});

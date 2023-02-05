@@ -26,21 +26,25 @@
     <div
       class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
     >
-      <div class="col mb-5">
-        <div class="card h-100">
+      <div
+        class="col mb-5"
+        *ngFor="let product of products | filter : 'sand' : 'title'"
+      >
+        <div class="card h-100 p-3">
           <!-- Product image-->
           <img
             class="card-img-top"
-            src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-            alt="..."
+            [src]="product.image"
+            [alt]="product.title"
+            height="200px"
           />
           <!-- Product details-->
           <div class="card-body p-4">
             <div class="text-center">
               <!-- Product name-->
-              <h5 class="fw-bolder">Fancy Product</h5>
+              <h5 class="fw-bolder">{{ product.title.slice(0, 17) }}...</h5>
               <!-- Product price-->
-              $40.00 - $80.00
+              <b class="text-danger">${{ product.price }}</b>
             </div>
           </div>
           <!-- Product actions-->
@@ -48,7 +52,7 @@
             <div class="text-center">
               <a
                 class="btn btn-outline-dark mt-auto"
-                routerLink="view-product/id"
+                routerLink="view-product/{{ product.id }}"
                 >View options</a
               >
             </div>

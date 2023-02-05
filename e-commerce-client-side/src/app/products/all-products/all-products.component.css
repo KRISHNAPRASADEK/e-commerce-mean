@@ -1,3 +1,10 @@
 .animate__animated.animate__bounceInDown {
   --animate-duration: 3s;
 }
+.card-img-top {
+  transition: 3;
+}
+.card-img-top:hover {
+  transform: scale(1.1);
+  transition: 2s;
+}
