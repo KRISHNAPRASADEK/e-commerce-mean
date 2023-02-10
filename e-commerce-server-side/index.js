@@ -25,3 +25,23 @@ server.get("/view-product/:productId", (req, res) => {
     res.status(result.statusCode).json(result);
   });
 });
+
+// addtowishlist  api
+server.post("/add-to-wishlist", (req, res) => {
+  dataService.addToWishList(req.body).then((result) => {
+    res.status(result.statusCode).json(result);
+  });
+});
+
+// get wishlist products api
+server.get("/get-wishlist", (req, res) => {
+  dataService.getWishList().then((result) => {
+    res.status(result.statusCode).json(result);
+  });
+});
+// remove wishlist products api
+server.delete("/remove-item-wishlist/:productId", (req, res) => {
+  dataService.deleteItemWishList(req.params.productId).then((result) => {
+    res.status(result.statusCode).json(result);
+  });
+});

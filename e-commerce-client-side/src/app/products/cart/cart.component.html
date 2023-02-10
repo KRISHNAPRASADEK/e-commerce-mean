@@ -1,7 +1,7 @@
 <!-- empty cart section -->
-<div class="container mt-5">
+<div class="container mt-5 mb-3">
   <div class="row">
-    <div class="col mt-5 text-center">
+    <div *ngIf="cartItems.length == 0" class="col mt-5 text-center">
       <img
         style="height: 300px"
         src="https://gifimage.net/wp-content/uploads/2017/11/einkaufswagen-gif-11.gif"
@@ -13,7 +13,7 @@
   </div>
 </div>
 <!-- cart section -->
-<div class="container mb-5 mt-5">
+<div *ngIf="cartItems.length !== 0" class="container mb-5 mt-5">
   <div class="row">
     <div class="col-lg-8 border rounded p-3">
       <!-- table -->
@@ -28,14 +28,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
+          <tr *ngFor="let product of cartItems; let i = index">
+            <th>{{ i + 1 }}</th>
             <th>
               <img
                 class="ms-4"
                 width="50px"
-                src="https://icons.iconarchive.com/icons/google/noto-emoji-objects/512/63007-shopping-cart-icon.png"
-                alt="product image"
+                [src]="product.image"
+                [alt]="product.title"
               />
             </th>
             <th>
@@ -46,28 +46,33 @@
                 style="max-width: 3rem"
               />
             </th>
-            <th>3000</th>
+            <th>{{ product.price }}</th>
             <th>
-              <a class="text-danger btn"><i class="fa-solid fa-trash"></i></a>
+              <a (click)="removeItem(product)" class="text-danger btn"
+                ><i class="fa-solid fa-trash"></i
+              ></a>
             </th>
           </tr>
         </tbody>
       </table>
       <div style="float: right">
-        <button class="btn btn-danger">Empty Cart</button>
+        <button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button>
         <a routerLink="" class="btn btn-secondary ms-5">Shop More</a>
       </div>
     </div>
     <div class="col-lg-1"></div>
-    <div class="col-lg-3 border rounded p-3">
+    <div class="col-lg-3 border rounded p-3" style="height: 210px">
       <div>
         <p>
           Total:
-          <span class="text-danger"> 3000 </span>
+          <span class="text-danger">
+            <!-- {{ cartTotal.toString().slice(0, 6) }} -->
+            {{ cartTotal }}
+          </span>
         </p>
         <p>Discount: <span>0</span></p>
         <h5 class="animate__animated animate__shakeX">
-          Grant Total: <span>3000</span>
+          Grant Total: <span>2000</span>
         </h5>
       </div>
 

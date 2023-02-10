@@ -18,8 +18,11 @@ export class AllProductsComponent implements OnInit {
 
     this.api.searchKey.subscribe((result: any) => {
       if (result) {
-        console.log('hii');
+        console.log(result);
+        this.searchItem = result;
       }
     });
   }
+
+ 
 }

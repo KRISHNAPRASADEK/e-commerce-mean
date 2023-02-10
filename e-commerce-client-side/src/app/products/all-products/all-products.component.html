@@ -28,7 +28,7 @@
     >
       <div
         class="col mb-5"
-        *ngFor="let product of products | filter : 'sand' : 'title'"
+        *ngFor="let product of products | filter : searchItem : 'title'"
       >
         <div class="card h-100 p-3">
           <!-- Product image-->

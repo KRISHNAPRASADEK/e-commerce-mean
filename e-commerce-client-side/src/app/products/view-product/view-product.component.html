@@ -24,13 +24,18 @@
         </p>
         <p class="fw-bolder">Rating: {{ viewProduct.rating.rate }}</p>
         <div class="d-flex">
-          <button class="btn btn-outline-danger flex-shrink-0" type="button">
+          <button
+            class="btn btn-outline-danger flex-shrink-0"
+            type="button"
+            (click)="addToWishList(viewProduct)"
+          >
             <i class="bi-cart-fill me-1"></i>
             Add to wishlist
           </button>
           <button
             class="btn btn-outline-success flex-shrink-0 ms-3"
             type="button"
+            (click)="addToCart(viewProduct)"
           >
             <i class="bi-cart-fill me-1"></i>
             Add to cart
