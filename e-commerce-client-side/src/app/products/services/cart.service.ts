@@ -35,5 +35,6 @@ export class CartService {
   emptyCart() {
     this.cartItemArray = [];
     this.cartItemList.next(this.cartItemArray);
+    
   }
 }

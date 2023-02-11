@@ -66,24 +66,182 @@
         <p>
           Total:
           <span class="text-danger">
-            <!-- {{ cartTotal.toString().slice(0, 6) }} -->
-            {{ cartTotal }}
+            {{ grantTotal }}
           </span>
         </p>
-        <p>Discount: <span>0</span></p>
+        <p>
+          Discount: <span>{{ discount }}</span>
+        </p>
         <h5 class="animate__animated animate__shakeX">
-          Grant Total: <span>2000</span>
+          Grant Total:
+          <span class="text-danger fw-bolder"> {{ discountTotal }}</span>
         </h5>
       </div>
 
       <hr />
 
       <div class="mt-2">
-        <a href="" style="text-decoration: none; float: left"
-          ><i class="fa-solid fa-tag"></i> offers</a
+        <a
+          class="btn-primary btn-link"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          style="text-decoration: none; float: left"
         >
+          <i class="fa-solid fa-tag"></i> offers
+        </a>
+        <button
+          data-bs-toggle="modal"
+          data-bs-target="#checkModal"
+          style="float: right"
+          class="btn btn-success"
+        >
+          Check Out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <button style="float: right" class="btn btn-success">Check Out</button>
+<!-- offeras -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Coupons</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div *ngIf="grantTotal > 0 && grantTotal < 10" class="modal-body">
+        <img
+          (click)="discount3percent()"
+          data-bs-dismiss="modal"
+          height="100px"
+          width="100px"
+          src="https://tse3.mm.bing.net/th?id=OIP.6drr0UpwfrSH72-krmNHTwHaEx&pid=Api&P=0"
+          alt="offer image"
+        />
+        <p class="text-primary">All Users can apply</p>
+      </div>
+      <div *ngIf="grantTotal >= 10 && grantTotal <= 100" class="modal-body">
+        <img
+          (click)="discount10percent()"
+          data-bs-dismiss="modal"
+          height="100px"
+          width="100px"
+          src="https://tse1.mm.bing.net/th?id=OIP.lLrYMG5XKHWlYxz79ZbU9gHaDa&pid=Api&P=0"
+          alt="offer image"
+        />
+        <p class="text-primary">special offers</p>
+      </div>
+      <div *ngIf="grantTotal > 100" class="modal-body">
+        <img
+          (click)="discount50percent()"
+          data-bs-dismiss="modal"
+          height="100px"
+          width="100px"
+          src="https://tse3.mm.bing.net/th?id=OIP.9er5FxlS-wFgv0LNaeJblQAAAA&pid=Api&P=0"
+          alt="offer image"
+        />
+        <p class="text-primary">special offers</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="checkModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Paymet Info</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="fw-bolder text-center">{{ checkoutMsg }}</h5>
+
+        <form *ngIf="!checkoutMsg" class="border p-2">
+          <h5 class="mb-2">Customer Detailes</h5>
+          <div class="mb-2">
+            <input placeholder="Enter Name" type="text" class="form-control" />
+          </div>
+          <div class="mb-2">
+            <input
+              placeholder="Enter Address"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              placeholder="Enter Pincode"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              placeholder="Enter mobile"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              placeholder="Enter email"
+              type="email"
+              class="form-control"
+            />
+          </div>
+        </form>
+        <hr />
+        <h5 class="mb-2">Payment Detailes</h5>
+        <form class="border p-2">
+          <div class="mb-2">
+            <input
+              placeholder="Card Holder Name"
+              type="email"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-2">
+            <input
+              placeholder="Card Holder Number"
+              type="email"
+              class="form-control"
+            />
+          </div>
+        </form>
+      </div>
+      <div *ngIf="!checkoutMsg" class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button (click)="checkout()" type="button" class="btn btn-primary">
+          Make Payment
+        </button>
       </div>
     </div>
   </div>
